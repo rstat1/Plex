@@ -1,0 +1,8 @@
+default		0
+timeout 	0
+
+title 		Plex
+root		(fd0)
+kernel		/boot/kernel.bin
+quiet
+

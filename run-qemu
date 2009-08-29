@@ -1,0 +1,6 @@
+clear
+
+sh make-kernel.sh
+umount /home/rstat1/fd0
+qemu -boot a -no-kqemu -fda /home/rstat1/Desktop/current\ work/image1.img
+mount -t msdos /home/rstat1/Desktop/current\ work/image1.img /home/rstat1/fd0 -o loop

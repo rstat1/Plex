@@ -1,0 +1,7 @@
+#!/bin/sh
+clear
+
+sh make-kernel-desktop.sh
+umount /home/kernel/fd0
+qemu -boot a -s -S -no-kqemu -fda /home/kernel/Desktop/current\ work/image1.img
+mount -t msdos /home/kernel/Desktop/current\ work/image1.img /home/kernel/fd0 -o loop
