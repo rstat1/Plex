@@ -1,7 +1,8 @@
 #include "includes/system.h"
 
-extern "C" void kernel_main(struct multiboot_info *mboot, int initial_stack);
 int __gxx_personality_v0;
+extern "C" void kernel_main(struct multiboot_info *mboot, int initial_stack);
+
 void kernel_main(struct multiboot_info *mboot, int initial_stack)
 {
     long int mem = 0;

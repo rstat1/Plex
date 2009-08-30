@@ -36,4 +36,3 @@ SECTIONS{
         KERNEL_END = .;
     }
 }
-
