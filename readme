@@ -1,0 +1,9 @@
+Scripts currently included only allow for build on Linux (or Cygwin I guess, not tested)
+
+They will require
+	-- qemu
+	-- sh
+	-- gcc (or g++ rather)
+	-- nasm
+
+Two scripts included, one "make-kernel" just builds the kernel. I use it to make sure I haven't broken the build with errors or missing files. The other run-qemu, well I think this one is pretty self-explainatory.
