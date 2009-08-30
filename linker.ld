@@ -5,7 +5,7 @@ SECTIONS{
     . = 0x00100000;
 
     .text :{
-        KERNEL_START = .;
+        k_start = .;
 
         *(.text)
     }
@@ -33,6 +33,6 @@ SECTIONS{
         *(.bss)
         EBSS = .;
 
-        KERNEL_END = .;
+        end = .;
     }
 }

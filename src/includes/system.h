@@ -1,5 +1,6 @@
 #include "multiboot.h"
 
+
 typedef int size_t;
 typedef unsigned long uint32_t;
 struct regs
@@ -10,7 +11,10 @@ struct regs
     unsigned int eip, cs, eflags, useresp, ss;   /* pushed by the processor automatically */ 
 };
 
+extern int end[];
+
 //main.cpp
+extern multiboot_info *mboot_info;
 extern void *memcpy(void *dest, const void *src, int count);
 extern void *memset(void *dest, unsigned char val, int count);
 extern unsigned short *memsetw(unsigned short *dest, unsigned short val, int count);
@@ -38,3 +42,6 @@ extern void irq_remap();;
 //timer.cpp
 extern void timer_handler();
 extern void timer_install();
+
+//mm.cpp
+extern void init_memory_manager();

@@ -1,12 +1,14 @@
 #include "includes/system.h"
 
-int __gxx_personality_v0;
 extern "C" void kernel_main(struct multiboot_info *mboot, int initial_stack);
+int __gxx_personality_v0;
+multiboot_info *mboot_info;
 
 void kernel_main(struct multiboot_info *mboot, int initial_stack)
 {
     long int mem = 0;
-    start_video();
+	mboot_info = mboot;
+	start_video();
     putstr("Init Descriptor Tables................."); 
     gdt_install(); 
     idt_install();
@@ -21,10 +23,12 @@ void kernel_main(struct multiboot_info *mboot, int initial_stack)
     putstr("Init PIT..............................."); 
     timer_install();
     putstr("[OK]\n");    
-    putstr("Memory.................................");
+    putstr("Amount of memory......................");
     mem = mboot->mem_upper / 1024; 
     putnum(mem);
-    putstr("MB");
+    putstr("MB\n");
+	putstr("Init Memory............................");
+	init_memory_manager();
     putstr("\n\n");     
     putstr("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWelcome to Plex!");
     for (;;); 
